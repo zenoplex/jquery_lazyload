@@ -20,5 +20,6 @@ gulp.task 'js', ->
   .pipe rename
     extname: '.min.js'
   .pipe gulp.dest config.js.dest
+  .pipe gulp.dest config.html.dest
   .pipe browsersync.reload
     stream: true

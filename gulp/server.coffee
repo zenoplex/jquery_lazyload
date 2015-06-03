@@ -5,4 +5,4 @@ config      = require './config'
 gulp.task 'serve', ->
   browsersync
     server:
-      baseDir: config.dist
+      baseDir: config.html.dest
