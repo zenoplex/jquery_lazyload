@@ -1,0 +1,6 @@
+gulp   = require 'gulp'
+config = require './config'
+
+gulp.task 'watch', ['lint', 'serve'], ->
+  gulp.watch config.js.src, ['js']
+
