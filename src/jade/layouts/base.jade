@@ -3,34 +3,57 @@ html(lang='ja')
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title #{title}
-    link(type='text/css' rel='stylesheet' href='//www.appelsiini.net/css/appelsiini.css')
+    title #{data.title}
+    link(type='text/css' rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     link(type='text/css' rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+    link(type='text/css' rel='stylesheet' href='//almsaeedstudio.com/themes/AdminLTE/dist/css/AdminLTE.min.css')
+    link(type='text/css' rel='stylesheet' href='//almsaeedstudio.com/themes/AdminLTE/dist/css/skins/_all-skins.min.css')
+    link(type='text/css' rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css')
     link(rel='shortcut icon' href='//www.appelsiini.net/img/favicon.ico')
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  body
-    .jumbotron
-      .container
-        .col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
-          h1
-           #{title}
+  body.skin-blue.sidebar-mini
+    .wrapper
+      header.main-header
 
-    .container
-      .col-md-10.col-lg-8.col-md-offset-1.col-lg-offset-2
+        //logo
+        a.logo(href='')
+          span.logo-mini
+            b lazy
+            | load
+          span.logo-lg
+            b lazy
+            | load
+
+        nav.navbar.navbar-static-top
+          a.sidebar-toggle(href='#' data-toggle='offcanvas')
+            span.sr-only Toggle navigation
+
+          .navbar-custom-menu
+            ul.nav.navbar-nav
+              li.dropdown.user.user-menu
+                a.dropdown-toggle(href='#' data-toggle='dropdown')
+                  img.user-image(src='//placehold.it/160x160')
+                  span.hidden-xs zenoplex
+
+      // sidebar
+      include ../partials/sidebar
+
+      // content
+      .content-wrapper
         block content
 
-    .bottom-menu.bottom-menu-large.bottom-menu-inverse
-      .container
+      footer.main-footer
+        | HTML Template by
+        strong
+          a(href='#') AdminLTE
 
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    script(src='./jquery.lazyload.min.js')
-    script.
-      (function($){
-        $('img.lazy').lazyload({
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js')
 
-        });
-      })(window.jQuery)
+    script(src='./jquery.lazyload.min.js')
+    block script

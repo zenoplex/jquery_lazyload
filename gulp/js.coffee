@@ -1,10 +1,12 @@
-config = require './config'
-gulp = require 'gulp'
-uglify = require 'gulp-uglify'
-rename = require 'gulp-rename'
-header = require 'gulp-header'
+config      = require './config'
+gulp        = require 'gulp'
+uglify      = require 'gulp-uglify'
+rename      = require 'gulp-rename'
+header      = require 'gulp-header'
+plumber     = require 'gulp-plumber'
 browsersync = require 'browser-sync'
-pkg = require '../package'
+pkg         = require '../package'
+
 banner = [
   '/*!'
   '<%= pkg.name %> - <%= pkg.version %>'
@@ -13,8 +15,9 @@ banner = [
   '*/'
 ].join ' '
 
-gulp.task 'js', ->
+gulp.task 'js', ['lint'], ->
   gulp.src config.js.src
+  .pipe plumber()
   .pipe uglify()
   .pipe header banner, pkg : pkg
   .pipe rename

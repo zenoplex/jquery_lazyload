@@ -3,12 +3,14 @@ jade        = require 'gulp-jade'
 browsersync = require 'browser-sync'
 data        = require 'gulp-data'
 path        = require 'path'
+plumber     = require 'gulp-plumber'
 config      = require './config'
 jsonData    = require config.html.data
 
 gulp.task '_jade', ->
   gulp
   .src config.html.src
+  .pipe plumber()
   .pipe data (file) ->
     parsed = path.parse file.relative
 

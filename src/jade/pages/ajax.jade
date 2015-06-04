@@ -1,0 +1,33 @@
+extends ../layouts/base
+
+
+
+
+block content
+  h2 Plugin enabled
+  p
+    Images are loaded via AJAX(H) call after you click the container.
+    Lazy Load is applied in the callback.
+
+  pre.prettyprint
+    | $('#container').one('click', function() {
+    |   $('#container').load('images.html', function(response, status, xhr) {
+    |     $('img.lazy').lazyload();
+    |   });
+    | });
+
+  pre.prettyprint
+    | &lt;img class="lazy" data-original="img/example.jpg" width="765" height="574"&gt;</pre>
+
+
+  .container
+    include ../partials/image-list
+
+
+block script
+  script.
+    (function($){
+      $('#')
+
+      $('img.lazy').lazyload({});
+    })(window.jQuery)

@@ -7,5 +7,6 @@ module.exports =
     dest: dist
   html:
     data: '../src/jade/data'
+    all: './src/jade/**/*.jade'
     src: './src/jade/pages/*.jade'
     dest: './demo'

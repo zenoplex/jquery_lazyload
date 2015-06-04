@@ -19,17 +19,13 @@ block content
 
           .box-body
             p
-              Images below the fold (the ones lower than window bottom) are not loaded.
-              When scrolling down they are loaded when needed. Empty cache and shift-reload to test again.
-              Compare this to page where plugin is <a href="disabled.html">disabled</a>,
-              same page with <a href="enabled_fadein.html">fadein effect</a>,
-              page with <a href="enabled_wide.html">wide layout</a> or wide content <a href="enabled_wide_container.html">inside container</a>.
+              | Plugin enabled to replace background-image with lazyload.
 
-            pre.prettyprint &lt;img class="lazy" data-original="img/example.jpg" width="765" height="574"&gt;
+            pre.prettyprint &lt;div class="lazy" data-original="img/bmw_m1_hood.jpg" style="background-image: url('img/grey.gif'); width: 765px; height: 574px;"&gt;&lt;/div&gt;
             pre.prettyprint $('img.lazy').lazyload();
 
             // image list
-            include ../partials/image-list
+            include ../partials/image-list-background
 
           .box-footer
 

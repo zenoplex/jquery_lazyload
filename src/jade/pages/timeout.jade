@@ -1,0 +1,49 @@
+extends ../layouts/base
+
+block content
+  section.content-header
+    h1 #{data.title}
+      small version
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header.with-border
+            h3.box-title getting started
+            .box-tools.pull-right
+              button.btn.btn-box-tool(data-widget='collapse')
+                i.fa.fa-minus
+              button.btn.btn-box-tool.dropdown-toggle(data-toggle='dropdown')
+                i.fa.fa-wrench
+
+          .box-body
+            p
+              | Images below the fold are not loaded. Timeout will trigger five seconds after
+              | all other elements of page have been loaded.
+
+            pre.prettyprint
+              | $(function() {
+              |   $('img.lazy').lazyload({
+              |     event : 'sporty'
+              |   });
+              |   $(window).on('load', function() {
+              |     var timeout = setTimeout(f  unction() { $('img.lazy').trigger('sporty') }, 5000);
+              |   });
+              | });
+
+            // image list
+            include ../partials/image-list
+
+          .box-footer
+
+
+block script
+  script.
+    (function($) {
+      $('img.lazy').lazyload({ event: 'sporty' });
+
+      $(window).on('load', function(){
+        setTimeout(function(){ $('img.lazy').trigger('sporty')}, 5000)
+      });
+    })(window.jQuery);
