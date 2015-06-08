@@ -21,8 +21,7 @@ gulp.task '_jade', ->
     #a.b.c みたいな文字列でオブジェクトにアクセスして該当データを取得
     d = str.split('.').reduce(index, jsonData)
 
-    if(d)
-      return { data: d }
+    return { data: d ? d : {} }
 
   .pipe jade
     compileDebug: true

@@ -9,20 +9,20 @@ html(lang='ja')
     link(type='text/css' rel='stylesheet' href='//almsaeedstudio.com/themes/AdminLTE/dist/css/AdminLTE.min.css')
     link(type='text/css' rel='stylesheet' href='//almsaeedstudio.com/themes/AdminLTE/dist/css/skins/_all-skins.min.css')
     link(type='text/css' rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css')
+    block style
     link(rel='shortcut icon' href='//www.appelsiini.net/img/favicon.ico')
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  body.skin-blue.sidebar-mini
+  body.skin-black.sidebar-mini
     .wrapper
       header.main-header
 
         //logo
         a.logo(href='')
           span.logo-mini
-            b lazy
-            | load
+            b lzy
           span.logo-lg
             b lazy
             | load
@@ -53,6 +53,7 @@ html(lang='ja')
 
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
+    script(src='//almsaeedstudio.com/themes/AdminLTE/dist/js/app.min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js')
 
     script(src='./jquery.lazyload.min.js')

@@ -13,5 +13,11 @@
   },
   "timeout": {
     "title": "Load images with delay"
+  },
+  "horizontal": {
+    "title": "Horizontal Lazyload"
+  },
+  "events": {
+    "title": "Events"
   }
 }

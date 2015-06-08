@@ -1,0 +1,57 @@
+extends ../layouts/base
+
+block content
+  section.content-header
+    h1 #{data.title}
+      small version
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header.with-border
+            h3.box-title getting started
+            .box-tools.pull-right
+              button.btn.btn-box-tool(data-widget='collapse')
+                i.fa.fa-minus
+              button.btn.btn-box-tool.dropdown-toggle(data-toggle='dropdown')
+                i.fa.fa-wrench
+
+          .box-body
+            p
+              | Handle image load/error event.
+              br
+              | Open console to see event triggered on lazyload.
+
+            pre.prettyprint
+              | $('img.lazy').lazyload({
+              |   load:  function(imageLeft, settings) {
+              |     console.log(this, settings);
+              |     console.log('image left to load: ' + imageLeft);
+              |   },
+              |   error: function(imageLeft, settings) {
+              |     console.alert(this, settings);
+              |     console.log('image left to load: ' + imageLeft);
+              |   }
+              | });
+
+            // image list
+            include ../partials/image-list
+
+          .box-footer
+
+
+block script
+  script.
+    (function($) {
+      $('img.lazy').lazyload({
+        load:  function(imageLeft, settings) {
+          console.log(this, settings);
+          console.log('image left to load: ' + imageLeft);
+        },
+        error: function(imageLeft, settings) {
+          console.error(this, settings);
+          console.log('image left to load: ' + imageLeft);
+        }
+      });
+    })(window.jQuery)
