@@ -7,33 +7,42 @@ block content
         small #{data.subtitle}
 
   section.content
-    .row
-      .col-xs-12
-        .box
-          .box-header.with-border
-            h3.box-title getting started
-            .box-tools.pull-right
-              button.btn.btn-box-tool(data-widget='collapse')
-                i.fa.fa-minus
+    .box
+      .box-header.with-border
+        h3.box-title getting started
+        .box-tools.pull-right
+          button.btn.btn-box-tool(data-widget='collapse')
+            i.fa.fa-minus
 
-          .box-body
-            p
-              Images right of the fold are not loaded. When scrolling left they are loaded when needed.
-              Shift-reload to test again.
+      .box-body
+        p
+          Images right of the fold are not loaded. When scrolling left they are loaded when needed.
+          Shift-reload to test again.
 
-            // image list
-            include ../partials/image-list-unstyled
+        .thumbnails-wrapper
+          include ../partials/image-list-unstyled
 
-          .box-footer
+
+      .box-footer
 
 block style
   style.
-    .thumbnails {
-      width: 5000px;
+    .thumbnails-wrapper {
+      overflow: scroll;
     }
+    .thumbnails {
+      width: 7000px;
+    }
+    .thumbnails > img {
+      display: inline;
+    }
+
 
 block script
   script.
     (function($) {
-      $('img.lazy').lazyload({});
+      $('img.lazy').lazyload({
+        container: $('.thumbnails-wrapper'),
+        threshold: -200
+      });
     })(window.jQuery)
