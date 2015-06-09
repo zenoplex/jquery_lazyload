@@ -3,7 +3,8 @@ extends ../layouts/base
 block content
   section.content-header
     h1 #{data.title}
-      small version
+      - if (data.subtitle)
+        small #{data.subtitle}
 
   section.content
     .row
@@ -14,8 +15,6 @@ block content
             .box-tools.pull-right
               button.btn.btn-box-tool(data-widget='collapse')
                 i.fa.fa-minus
-              button.btn.btn-box-tool.dropdown-toggle(data-toggle='dropdown')
-                i.fa.fa-wrench
 
           .box-body
             p
@@ -36,13 +35,6 @@ block content
             include ../partials/image-list
 
           .box-footer
-
-
-block style
-  style.
-    .row.thumbnails {
-      width: 5000px;
-    }
 
 
 block script
