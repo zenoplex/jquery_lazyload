@@ -11,7 +11,15 @@
  * Version:  1.9.5
  *
  */
-(function($, window, document, undefined) {
+(function(factory) {
+  'use strict';
+
+  if ( typeof module === 'object' && typeof module.exports === 'object' ) {
+    factory(require('jquery'), window, document);
+  } else {
+    factory(jQuery, window, document);
+  }
+}(function($, window, document, undefined) {
   'use strict';
 
   var $win     = $(window);
@@ -38,12 +46,11 @@
    */
   function isBelowFold(element, options) {
     var bottom;
-    var win = window;
 
     options = $.extend(defaults, options);
 
-    if ( options.container === undefined || options.container === win ) {
-      bottom = (win.innerHeight ? win.innerHeight : $win.height()) + $win.scrollTop();
+    if ( options.container === undefined || options.container === window ) {
+      bottom = (window.innerHeight ? window.innerHeight : $win.height()) + $win.scrollTop();
     } else {
       bottom = $(options.container).offset().top + $(options.container).height();
     }
@@ -263,9 +270,7 @@
     }
 
     //Force initial check if images should appear.
-    $(function() {
-      update();
-    });
+    $(function() { update(); });
 
     return this;
   };
@@ -273,11 +278,9 @@
   // default options
   $.fn.lazyload.defaults = defaults;
 
-
-  /* Custom selectors for your convenience.   */
-  /* Use as $('img:below-the-fold').something() or */
-  /* $('img').filter(':below-the-fold').something() which is faster */
-
+  // Custom selectors for your convenience.
+  // Use as $('img:below-the-fold').something() or
+  // $('img').filter(':below-the-fold').something() which is faster
   $.extend($.expr[':'], {
     'below-the-fold':  function(a) { return isBelowFold(a, { threshold: 0 }); },
     'above-the-top':   function(a) { return !isBelowFold(a, { threshold: 0 }); },
@@ -285,5 +288,4 @@
     'left-of-screen':  function(a) { return !isRightOfScreen(a, { threshold: 0 }); },
     'in-viewport':     function(a) { return isInViewport(a, { threshold: 0 }); }
   });
-
-})(jQuery, window, document);
+}));
