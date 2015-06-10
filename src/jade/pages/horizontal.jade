@@ -1,0 +1,48 @@
+extends ../layouts/base
+
+block content
+  section.content-header
+    h1 #{data.title}
+      - if (data.subtitle)
+        small #{data.subtitle}
+
+  section.content
+    .box
+      .box-header.with-border
+        h3.box-title getting started
+        .box-tools.pull-right
+          button.btn.btn-box-tool(data-widget='collapse')
+            i.fa.fa-minus
+
+      .box-body
+        p
+          Images right of the fold are not loaded. When scrolling left they are loaded when needed.
+          Shift-reload to test again.
+
+        .thumbnails-wrapper
+          include ../partials/image-list-unstyled
+
+
+      .box-footer
+
+block style
+  style.
+    .thumbnails-wrapper {
+      overflow: scroll;
+    }
+    .thumbnails {
+      width: 7000px;
+    }
+    .thumbnails > img {
+      display: inline;
+    }
+
+
+block script
+  script.
+    (function($) {
+      $('img.lazy').lazyload({
+        container: $('.thumbnails-wrapper'),
+        threshold: -200
+      });
+    })(window.jQuery)

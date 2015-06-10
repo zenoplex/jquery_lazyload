@@ -1,0 +1,36 @@
+extends ../layouts/base
+
+block content
+  section.content-header
+    h1 #{data.title}
+      - if (data.subtitle)
+        small #{data.subtitle}
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header.with-border
+            h3.box-title getting started
+            .box-tools.pull-right
+              button.btn.btn-box-tool(data-widget='collapse')
+                i.fa.fa-minus
+
+          .box-body
+            p
+              | Plugin enabled to replace background-image with lazyload.
+
+            pre.prettyprint &lt;div class="lazy" data-original="img/bmw_m1_hood.jpg" style="background-image: url('img/grey.gif'); width: 765px; height: 574px;"&gt;&lt;/div&gt;
+            pre.prettyprint $('.lazy').lazyload();
+
+            // image list
+            include ../partials/image-list-background
+
+          .box-footer
+
+
+block script
+  script.
+    (function($) {
+      $('.lazy').lazyload();
+    })(window.jQuery)

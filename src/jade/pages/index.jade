@@ -1,0 +1,42 @@
+extends ../layouts/base
+
+block content
+  section.content-header
+    h1 #{data.title}
+      - if (data.subtitle)
+        small #{data.subtitle}
+
+  section.content
+    .row
+      .col-xs-12
+        .box
+          .box-header.with-border
+            h3.box-title getting started
+            .box-tools.pull-right
+              button.btn.btn-box-tool(data-widget='collapse')
+                i.fa.fa-minus
+
+          .box-body
+            p
+              Images below the fold (the ones lower than window bottom) are not loaded.
+              When scrolling down they are loaded when needed. Empty cache and shift-reload to test again.
+              Compare this to page where plugin is <a href="disabled.html">disabled</a>,
+              same page with <a href="enabled_fadein.html">fadein effect</a>,
+              page with <a href="enabled_wide.html">wide layout</a> or wide content <a href="enabled_wide_container.html">inside container</a>.
+
+            pre.prettyprint &lt;img class="lazy" data-original="img/example.jpg" width="765" height="574"&gt;
+            pre.prettyprint $('img.lazy').lazyload();
+
+            // image list
+            include ../partials/image-list
+
+          .box-footer
+
+
+block script
+  script.
+    (function($) {
+      $('img.lazy').lazyload({
+        failure_limit: 10
+      });
+    })(window.jQuery)

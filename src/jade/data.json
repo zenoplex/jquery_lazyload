@@ -1,0 +1,23 @@
+{
+  "index": {
+    "title": "Lazyload plugin for jQuery",
+    "description": ""
+  },
+  "ajax": {
+    "title": "Ajax content",
+    "description": ""
+  },
+  "background": {
+    "title": "Lazyload enabled on background images",
+    "description": ""
+  },
+  "timeout": {
+    "title": "Load images with delay"
+  },
+  "horizontal": {
+    "title": "Horizontal Lazyload"
+  },
+  "events": {
+    "title": "Events"
+  }
+}
