@@ -36,5 +36,7 @@ block content
 block script
   script.
     (function($) {
-      $('img.lazy').lazyload({});
+      $('img.lazy').lazyload({
+        failure_limit: 10
+      });
     })(window.jQuery)

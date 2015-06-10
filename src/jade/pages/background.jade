@@ -21,7 +21,7 @@ block content
               | Plugin enabled to replace background-image with lazyload.
 
             pre.prettyprint &lt;div class="lazy" data-original="img/bmw_m1_hood.jpg" style="background-image: url('img/grey.gif'); width: 765px; height: 574px;"&gt;&lt;/div&gt;
-            pre.prettyprint $('img.lazy').lazyload();
+            pre.prettyprint $('.lazy').lazyload();
 
             // image list
             include ../partials/image-list-background
@@ -32,5 +32,5 @@ block content
 block script
   script.
     (function($) {
-      $('img.lazy').lazyload({});
+      $('.lazy').lazyload();
     })(window.jQuery)
